@@ -5,7 +5,8 @@
 }
 
 body {
-  height: 100%;
+  background: black;
+  height: 100vh;
   font-size: 18px;
   font-family: sans-serif;
 }
@@ -13,10 +14,7 @@ body {
 header {
   width: 100%;
   height: 15vh;
-  
 }
-
-
 
 .header-info {
   display: flex;
@@ -25,11 +23,11 @@ header {
   height: 100%;
   background-color: #000;
   color: #ffffff;
-
 }
 
 .header-info__turn,
-.header-info__round, .start-div {
+.header-info__round,
+.start-div {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
@@ -37,32 +35,29 @@ header {
 
 .header-info__turn {
   width: 45%;
- 
 }
 
-.start-div{
+.start-div {
   width: 10%;
 }
-.start{
+.start {
   width: 100%;
   padding: 1em;
   border: 1px solid #fff;
   background-color: #000;
   color: #fff;
-  
   cursor: pointer;
   transition: all 1s;
 }
 
-.start:hover{
+.start:hover {
   margin-bottom: 7px;
   box-shadow: 2px 40px 40px #572364;
-  transition: all .5s;
+  transition: all 0.5s;
 }
 
 .header-info__round {
   width: 45%;
-  
 }
 
 .header-info__turn p,
@@ -70,8 +65,12 @@ header {
   text-transform: uppercase;
   letter-spacing: 0.4em;
 }
+
+main {
+  height: 80%;
+}
+
 .game {
-  background: black;
   height: 80vh;
   display: flex;
   justify-content: center;
@@ -108,9 +107,9 @@ header {
   border-radius: 0 0 100% 0;
 }
 
-.cuadro{
-  opacity: .5;
-  transition: opacity .1s;
+.cuadro {
+  opacity: 0.5;
+  transition: opacity 0.1s;
 }
 
 .credits {
@@ -127,6 +126,62 @@ header {
   text-decoration: none;
   color: #50cc;
 }
-.credits__text-coffe{
+.credits__text-coffe {
   width: 30px;
 }
+
+.content__title {
+  text-transform: uppercase;
+  letter-spacing: 0.4em;
+  margin: 2em 0;
+}
+
+#loose {
+  color: #fff;
+  width: fit-content;
+  margin: 0 auto;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  display: none;
+  transition: opacity 20s;
+}
+
+.loose__content {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 50%;
+  margin: 0 auto;
+}
+
+.content__btn-play-again {
+  background-color: rgba(120, 0, 120, 0.8);
+  color: #fff;
+  position: relative;
+  outline: none;
+  border: none;
+  font-size: 1em;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 1em;
+  width: 45%;
+  cursor: pointer;
+}
+
+.icon {
+  width: 23px;
+  height: 23px;
+  position: absolute;
+  right: 85%;
+  transition: all 0.4s ease-in-out;
+}
+
+.content__btn-play-again:hover .icon {
+  transform: rotate(360deg) scale(1.2);
+}
+
+.hidden {
+  display: none;
+}
+
