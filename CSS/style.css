@@ -79,7 +79,7 @@ main {
 
 .game > .grid-container {
   height: 100%;
-  width: 600px;
+  width: 550px;
   display: grid;
   justify-self: center;
   grid-gap: 1em;
