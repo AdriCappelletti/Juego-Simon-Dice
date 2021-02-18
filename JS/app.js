@@ -1,8 +1,4 @@
-// const square1 = document.querySelector("#cuadro1");
-// const square2 = document.querySelector("#cuadro2");
-// const square3 = document.querySelector("#cuadro3");
-// const square4 = document.querySelector("#cuadro4");
-const bt = document.querySelector("#start-round");
+const $startBtn = document.querySelector("#start-round");
 const state = document.querySelector("#state");
 const roundNumber = document.querySelector("#round-number");
 const squares = document.querySelectorAll(".cuadro");
@@ -11,25 +7,15 @@ const machineMovements = [];
 let userMovements = [];
 let round = 0;
 
-
-// function startRound(){
-// deshabilitar input del usuario
-// juega la maquina con un retraso entre cada juego para que no se ensimen
-// juega el usuario
-// Se comparan los arrays y si ambos son iguales juega la maquina nuevamente
-// }
-
-bt.onclick = function () {
+$startBtn.onclick = function () {
   roundHandler();
 };
 
 function machineTurn() {
-  round++;
-  roundNumber.textContent = round;
+  disableUserInput();
   state.textContent = "Machine turn";
   let randomNumber = getRandom();
   machineMovements.push(randomNumber);
-  console.log(machineMovements);
   for (let i = 0; i < machineMovements.length; i++) {
     const machineNumber = machineMovements[i];
     const selectedSquare = squares[machineNumber - 1];
@@ -40,15 +26,16 @@ function machineTurn() {
 }
 
 function roundHandler() {
+  round++;
+  roundNumber.textContent = round;
   machineTurn();
-  const PLAYER_DELAY = (machineMovements.length + 1) * 1000;
+  const playerDelay = (machineMovements.length + 1) * 1000;
   setTimeout(function () {
-    playerTurn();
-  }, PLAYER_DELAY);
+    playerMovements();
+  }, playerDelay);
 }
 
-// entre cada cuadro(posicion del array) dejar un espacio antes de pasar a la proxima posicion
-function playerTurn() {
+function playerMovements() {
   userMovements = [];
   state.textContent = "Your turn!";
   squares.forEach((square) => {
@@ -56,25 +43,44 @@ function playerTurn() {
       highlight(square);
       let n = square.getAttribute("data-number");
       userMovements.push(n);
-      if (compareArrays(userMovements, machineMovements) === true) {
-        roundHandler();
+      const $machinePosition = machineMovements[userMovements.length - 1];
+      if (square.dataset.number != $machinePosition) {
+        setTimeout(function name(params) {
+          youLoose();
+        }, 300);
+      } else if (userMovements.length === machineMovements.length) {
+        setTimeout(function () {
+          roundHandler();
+        }, 500);
       }
     };
   });
 }
+function disableUserInput() {
+  squares.forEach((square) => {
+    square.onclick = function () {};
+  });
+}
 
-
+function getRandom() {
+  return Math.floor(Math.random() * 4) + 1;
+}
 function highlight($square) {
   $square.style.opacity = 1;
   setTimeout(function () {
     $square.style.opacity = 0.5;
   }, 500);
 }
-
-function compareArrays(arr1, arr2) {
-  return arr1.toString() === arr2.toString();
+function youLoose() {
+  const $gameContent = document.querySelector(".game");
+  const $header = document.querySelector("header");
+  $gameContent.classList.add("hidden");
+  const $looseContent = document.querySelector("#loose");
+  $looseContent.style.display = "flex";
+  $header.classList.add("hidden");
 }
 
-function getRandom() {
-  return Math.floor(Math.random() * 4) + 1;
-}
+const $restartbtn = document.querySelector(".content__btn-play-again");
+$restartbtn.onclick = function () {
+  location.reload();
+};
