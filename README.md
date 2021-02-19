@@ -1,9 +1,19 @@
 # Juego-Simon-Dice
-Recreación personal del juego Simón Dice
+Personal recreation of Simon-dice game / Recreación personal del juego Simón Dice 
 
-This game was made as a project for the r/argentinaprograma JS course (https://argentinaprograma.com/).
+-ENGLISH-
+This game was made as a project for the r/argentinaprograma JS course (Click here for more info => https://argentinaprograma.com/).
 
-The project uses html, css (grid and flex-box) and JS vanilla.
+The project was build HTML, CSS (grid and flex-box) and JS Vanilla.
 
 You can see the demo by clicking here:
+https://adricappelletti.github.io/Juego-Simon-Dice/
+
+-ESPAÑOL-
+
+Este juego fue hecho como un proyecto para el curso r/argentinaprograma (Mas info acá => https://argentinaprograma.com/).
+
+El proyecto fue construido con HTML, CSS (Grid y flex-box) y JS Vanilla
+
+Podes ver la demo del juego en el siguiente link:
 https://adricappelletti.github.io/Juego-Simon-Dice/
