@@ -19,4 +19,5 @@ El proyecto fue construido con HTML, CSS (Grid y flex-box) y JS Vanilla
 Podes ver la demo del juego en el siguiente link:
 https://adricappelletti.github.io/Juego-Simon-Dice/
 
-https://github.com/AdriCappelletti/Juego-Simon-Dice/blob/gh-pages/img/game-demo.png
+
+![ScreenShot](https://github.com/AdriCappelletti/Juego-Simon-Dice/blob/gh-pages/img/game-demo.png)
